@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>crdt on Mattias Eklöfs blog</title>
+    <link>tias79.github.io/tags/crdt/</link>
+    <description>Recent content in crdt on Mattias Eklöfs blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>se</language>
+    <lastBuildDate>Sun, 22 Nov 2020 23:36:34 +0100</lastBuildDate><atom:link href="tias79.github.io/tags/crdt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Martin Kleppmann</title>
+      <link>tias79.github.io/post/martin-kleppmann/</link>
+      <pubDate>Sun, 22 Nov 2020 23:36:34 +0100</pubDate>
+      
+      <guid>tias79.github.io/post/martin-kleppmann/</guid>
+      <description>Martin Kleppmann forskar i distribuerade system på Cambridge Universitet och har specialiserat sig på bland annat skalbara distribuerade system, händelsedriven arkitektur och CRDTs.</description>
+    </item>
+    
+  </channel>
+</rss>
