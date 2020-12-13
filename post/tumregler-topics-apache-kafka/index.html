@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="se" data-theme=""><head>
-    <title> Mattias Eklöf | ddd </title>
+    <title> Mattias Eklöf | Tumregler för komponering av topics i Apache Kafka </title>
 
     
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.78.2" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -21,10 +21,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://tias79.github.io/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://tias79.github.io/favicons/favicon-16x16.png">
 
-    <link rel="canonical" href="https://tias79.github.io/tags/ddd/">
+    <link rel="canonical" href="https://tias79.github.io/post/tumregler-topics-apache-kafka/">
 
     
-    <link rel="alternate" type="application/rss+xml" href="https://tias79.github.io/tags/ddd/index.xml" title="Mattias Eklöfs blogg" />
     
     
     
@@ -35,8 +34,8 @@
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://tias79.github.io/images/site-feature-image.png"/>
 
-<meta name="twitter:title" content="ddd"/>
-<meta name="twitter:description" content="Det är här som jag pratar med mitt framtida jag om systemutveckling"/>
+<meta name="twitter:title" content="Tumregler för komponering av topics i Apache Kafka"/>
+<meta name="twitter:description" content="Martin Kleppmanns tumregler för hur du komponerar topics i Apache Kafka."/>
 
 </head>
 <body><div class="sidebar animated fadeInDown">
@@ -113,30 +112,45 @@
 
     <div class="autopagerize_page_element">
         <div class="content">
-    <div class="archive animated fadeInDown">
-        <ul class="list-with-title">
+    <div class="post animated fadeInDown">
+        <div class="post-content">
+
+            <div class="post-title">
+                <h3>Tumregler för komponering av topics i Apache Kafka</h3>
+                
+                    <div class="info">
+                        <em class="fas fa-calendar-day"></em>
+                        <span class="date">Sun, Dec 13, 2020</span>
+                        <em class="fas fa-stopwatch"></em>
+                        <span class="reading-time"></span>
+                    </div>
+                
+            </div>
+
+            <p>I ett blogginlägg som heter <a href="https://martin.kleppmann.com/2018/01/18/event-types-in-kafka-topic.html">Should you put several event types in the same Kafka topic?</a> så listar Martin Kleppmann några tumregler för hur vi kan välja att dela upp våra topics i <a href="https://kafka.apache.org">Apache Kafka</a>:</p>
+<ol>
+<li>Sikta på max hundratalet topic-partioner per broker-instans, om låg latens är viktigt.</li>
+<li>Händelser som berör en och samma entitet bör placers i en och samma topic, eftersom ordningen på händelserna troligtvis är av betydelse (varför även nyckel måste väljas därefter).</li>
+<li>Händelser som berör <em>olika</em> entiteter, men där det finns beroenden mellan entiteterna, bör hamna på samma topic. Saknas beroende bör händelserna placeras på olika topics, särskilt om dom hanteras av olika team.</li>
+<li>Enskilda händelser som omfattar flera entiteter bör initialt sparas som en sammansatt händelse, eftersom det är lättare att vid senare processning bryta upp händelsen i flera händelser (jämfört med att försöka återskapa den ursprungliga sammansatta händelsen).</li>
+<li>Om flera konsumenter behöver konsumera samma uppsättning topics, överväg att ersätta dessa topics med ett sammansatt topic.</li>
+<li>När regel 2-5 inte är applicerbara, så kan det vara aktuellt att gruppera händelser per händelsetyp i en och samma topic. Det kan dock komplicera användandet av statistik definierade scheman (så som <a href="https://avro.apache.org">Apache Avro</a>) för händelserna.</li>
+</ol>
+
+        </div>
+        <div class="post-footer">
+            <div class="info">
+                
+                <span class="separator"><a class="tag" href="/tags/martin-kleppmann/">martin-kleppmann</a><a class="tag" href="/tags/apache-kafka/">apache-kafka</a><a class="tag" href="/tags/h%C3%A4ndelsedriven-arkitektur/">händelsedriven-arkitektur</a><a class="tag" href="/tags/event-sourcing/">event-sourcing</a><a class="tag" href="/tags/ddd/">ddd</a></span>
+
+            </div>
+        </div>
+
+        
             
-                <div class="listing-title">2020</div>
-                
-                    <ul class="listing">
-                        <div class="listing-item">
-                            <div class="listing-post"><a href="https://tias79.github.io/post/tumregler-topics-apache-kafka/" title="Tumregler för komponering av topics i Apache Kafka">Tumregler för komponering av topics i Apache Kafka</a>
-                                <div class="post-time"><span class="date">Dec 13</span></div>
-                            </div>
-                        </div>
-                    </ul>
-                
-                    <ul class="listing">
-                        <div class="listing-item">
-                            <div class="listing-post"><a href="https://tias79.github.io/post/martin-kleppmann/" title="Martin Kleppmann">Martin Kleppmann</a>
-                                <div class="post-time"><span class="date">Nov 22</span></div>
-                            </div>
-                        </div>
-                    </ul>
-                
-            
-        </ul>
+        
     </div>
+
 
         </div>
     </div>
