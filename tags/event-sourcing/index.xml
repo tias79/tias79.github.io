@@ -6,7 +6,16 @@
     <description>Recent content in event-sourcing on Mattias Eklöfs blogg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>se</language>
-    <lastBuildDate>Sun, 13 Dec 2020 10:42:00 +0100</lastBuildDate><atom:link href="https://tias79.github.io/tags/event-sourcing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Jan 2021 10:21:00 +0100</lastBuildDate><atom:link href="https://tias79.github.io/tags/event-sourcing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Event Sourcing</title>
+      <link>https://tias79.github.io/post/event-sourcing/</link>
+      <pubDate>Sun, 03 Jan 2021 10:21:00 +0100</pubDate>
+      
+      <guid>https://tias79.github.io/post/event-sourcing/</guid>
+      <description>Vad är Event Sourcing och varför bör det användas, enligt Greg Young.</description>
+    </item>
+    
     <item>
       <title>Tumregler för komponering av topics i Apache Kafka</title>
       <link>https://tias79.github.io/post/tumregler-topics-apache-kafka/</link>

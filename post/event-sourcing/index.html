@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="se" data-theme=""><head>
-    <title> Mattias Eklöf | martin-kleppmann </title>
+    <title> Mattias Eklöf | Event Sourcing </title>
 
     
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.78.2" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -21,10 +21,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://tias79.github.io/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://tias79.github.io/favicons/favicon-16x16.png">
 
-    <link rel="canonical" href="https://tias79.github.io/tags/martin-kleppmann/">
+    <link rel="canonical" href="https://tias79.github.io/post/event-sourcing/">
 
     
-    <link rel="alternate" type="application/rss+xml" href="https://tias79.github.io/tags/martin-kleppmann/index.xml" title="Mattias Eklöfs blogg" />
     
     
     
@@ -35,8 +34,8 @@
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://tias79.github.io/images/site-feature-image.png"/>
 
-<meta name="twitter:title" content="martin-kleppmann"/>
-<meta name="twitter:description" content="Det är här som jag pratar med mitt framtida jag om systemutveckling"/>
+<meta name="twitter:title" content="Event Sourcing"/>
+<meta name="twitter:description" content="Vad är Event Sourcing och varför bör det användas, enligt Greg Young."/>
 
 </head>
 <body><div class="sidebar animated fadeInDown">
@@ -113,30 +112,66 @@
 
     <div class="autopagerize_page_element">
         <div class="content">
-    <div class="archive animated fadeInDown">
-        <ul class="list-with-title">
+    <div class="post animated fadeInDown">
+        <div class="post-content">
+
+            <div class="post-title">
+                <h3>Event Sourcing</h3>
+                
+                    <div class="info">
+                        <em class="fas fa-calendar-day"></em>
+                        <span class="date">Sun, Jan 3, 2021</span>
+                        <em class="fas fa-stopwatch"></em>
+                        <span class="reading-time"></span>
+                    </div>
+                
+            </div>
+
+            <p>I ett blogginlägg, som helt enkelt heter <a href="https://martinfowler.com/eaaDev/EventSourcing.html">Event Sourcing</a>, förklarar <a href="https://martinfowler.com">Martin Fowler</a> att Event Sourcing (ES) innebär att varje enskild tillståndsförändring i ett system representeras av en händelse som sparas tillsammans med alla andra händelser, i en kronologisk log. Fowler lyfter några fördelar med detta:</p>
+<ol>
+<li><em>Complete Rebuild</em> - hela systemets nuvarande tillstånds kan återskapas genom spela upp alla händelser på nytt.</li>
+<li><em>Temporal Query</em> - vi kan avgöra systemets tillstånd vid en given tidpunkt (från systemets start fram till nu).</li>
+<li><em>Event Replay</em> - vi kan lista ut effekten av en given händelse genom att skapa upp det nuvarande tillståndet på nytt, utan den aktuella händelsen (t ex om händelsen på något vis är felaktig).</li>
+</ol>
+<h3 id="fördelar">Fördelar</h3>
+<p>ES är en förlängning av <a href="https://en.wikipedia.org/wiki/Domain-driven_design">Domain Driven Design</a> (DDD), och en av frontfigurerna inom ES är <a href="https://gregfyoung.wordpress.com/">Greg Young</a>. I ett föredrag från <a href="https://www.youtube.com/watch?v=JHGkaShoyNs">Code on the Beach 2014</a> (YouTube) har Young några exempel på fördelar som ES för med sig:</p>
+<ol>
+<li>Händelseloggen är automatiskt även en &ldquo;audit log&rdquo;.</li>
+<li>Datastrukturerna för att repesentera ett systems tillstånd har en benägenhet att förändra sig oftare än systemets beteenden. ES gör att vi slipper datamigreringar, eftersom vi kan skapa om det aktuella tillståndet genom att spela upp alla händelser från början (&ldquo;Complete Rebuild&rdquo;).</li>
+<li>Affärssidan av verksamheten uppskattar ES, eftersom data aldrig förstörs utan bara läggs till i händelseloggen. Det möjliggörs t ex rapportgenerering för tidpunkter bakåt i tiden (&ldquo;Temporal Query&rdquo;).</li>
+<li>Många domäner tillämpar redan ES, t ex bokföring.</li>
+<li>Många &ldquo;mogna&rdquo; verksamheter så som bank, försäkring och börshandel tillämpar redan ES.</li>
+<li>I sammanhang där inte systemet representerar det faktiska tillståndet, t ex ett lager, passar ES naturligt in.</li>
+</ol>
+<h3 id="nackdelar">Nackdelar</h3>
+<p>Greg Young resonerar även kring förekommande oro att ES medför eskalerande kostnader för lagring, eftersom att varje händelse måste lagras istället för bara det nuvarande tillståndet. Två reflektioner han gör är:</p>
+<ol>
+<li>Produceras data i långsammare takt än <a href="https://sv.wikipedia.org/wiki/Moores_lag">Moores lag</a> föreskriver, så kommer kostnaden för lagring bara minska över tid.</li>
+<li>Undvik helst snaphots (aggregerade händelser), eftersom det medför komplexitet. Upp till 1000 händelser för ett <a href="https://en.wikipedia.org/wiki/Domain-driven_design#aggregate_root">aggregat</a> bör inte meföra prestandaproblem.</li>
+</ol>
+<h3 id="fördjupning">Fördjupning</h3>
+<p>På <a href="https://www.youtube.com/watch?v=LDW0QWie21s">Domain-Driven Design Europe 2016</a> (YouTube) så utvecklar Young några av sina tankar kring ES:</p>
+<ol>
+<li>ES är inte ett arkitekturellt mönster, utan något som appliceras ovanpå t ex en händelsedriven arkitektur.</li>
+<li>ES är inte någon generell lösning, utan något som bör tillämpas där det finns behov.</li>
+<li>ES är en funktionell modell som kan realiseras med koncepten: mönstermatchning, <a href="https://en.wikipedia.org/wiki/Fold_(higher-order_function)">fold</a> och funktioner.</li>
+<li>Det finns inga &ldquo;one-way commands&rdquo; (&ldquo;fire and forget&rdquo;) inom ES, eftersom den som skickar ett <em>kommando</em> bör vara beredd på att kommandot kan avvisas. En <em>händelse</em> är någonting som har inträffat och inte kan förändras, medan ett <em>kommando</em> kan avvisas efter t ex validering.</li>
+</ol>
+
+        </div>
+        <div class="post-footer">
+            <div class="info">
+                
+                <span class="separator"><a class="tag" href="/tags/event-sourcing/">event-sourcing</a><a class="tag" href="/tags/ddd/">ddd</a><a class="tag" href="/tags/greg-young/">greg-young</a></span>
+
+            </div>
+        </div>
+
+        
             
-                <div class="listing-title">2020</div>
-                
-                    <ul class="listing">
-                        <div class="listing-item">
-                            <div class="listing-post"><a href="https://tias79.github.io/post/tumregler-topics-apache-kafka/" title="Tumregler för komponering av topics i Apache Kafka">Tumregler för komponering av topics i Apache Kafka</a>
-                                <div class="post-time"><span class="date">Dec 13</span></div>
-                            </div>
-                        </div>
-                    </ul>
-                
-                    <ul class="listing">
-                        <div class="listing-item">
-                            <div class="listing-post"><a href="https://tias79.github.io/post/martin-kleppmann/" title="Martin Kleppmann">Martin Kleppmann</a>
-                                <div class="post-time"><span class="date">Nov 22</span></div>
-                            </div>
-                        </div>
-                    </ul>
-                
-            
-        </ul>
+        
     </div>
+
 
         </div>
     </div>
