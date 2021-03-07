@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="se" data-theme=""><head>
+    <title> Mattias Eklöf | Event Sourcing (och händelsedriven arkitektur) i praktiken </title>
+
+    
+    <meta charset="utf-8"><meta name="generator" content="Hugo 0.78.2" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Det är här som jag pratar med mitt framtida jag om systemutveckling">
+    <meta name="google-site-verification" content="gnlANYFhz76hw_QzYxKpiKCWK2z9r-1LZg52g6KE3sU">
+    
+    <link rel="stylesheet"
+          href="https://tias79.github.io/css/style.min.ae4af30f6a89627b05def70e914c14cbb53a71d28a88ec8d87a40ecc7c2778e2.css"
+          integrity="sha256-rkrzD2qJYnsF3vcOkUwUy7U6cdKKiOyNh6QOzHwneOI="
+          crossorigin="anonymous"
+          type="text/css"><link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
+    crossorigin="anonymous" />
+
+    
+    <link rel="shortcut icon" href="https://tias79.github.io/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://tias79.github.io/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://tias79.github.io/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://tias79.github.io/favicons/favicon-16x16.png">
+
+    <link rel="canonical" href="https://tias79.github.io/post/event-sourcing-i-praktiken/">
+
+    
+    
+    
+    
+    <script type="text/javascript"
+            src="https://tias79.github.io/js/anatole-header.min.e782db136ec18d105a4552702eac49f4620d6867da3fbf808bd53e806c96be6e.js"
+            integrity="sha256-54LbE27BjRBaRVJwLqxJ9GINaGfaP7&#43;Ai9U&#43;gGyWvm4="
+            crossorigin="anonymous"></script>
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://tias79.github.io/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Event Sourcing (och händelsedriven arkitektur) i praktiken"/>
+<meta name="twitter:description" content="Vittnesmål om att implementera event sourcing."/>
+
+</head>
+<body><div class="sidebar animated fadeInDown">
+    <div class="logo-title">
+        <div class="title">
+            <img src="https://tias79.github.io/images/profile.jpg" alt="profile picture">
+            <h3 title=""><a href="/">Mattias Eklöf</a></h3>
+            <div class="description">
+                <p>Det är här som jag pratar med mitt framtida jag om systemutveckling</p>
+            </div>
+        </div>
+    </div>
+    <ul class="social-links">
+        
+            <li>
+                <a href="https://www.linkedin.com/in/mattiaseklof/" rel="me" aria-label="Linkedin">
+                    <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://github.com/tias79/" rel="me" aria-label="GitHub">
+                    <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            <li>
+                <a href="mailto:mattias.eklof@gmail.com" rel="me" aria-label="e-mail">
+                    <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+    </ul>
+    <div class="footer">
+        <div class="by_farbox">&copy; Mattias Eklöf 2021 </div>
+    </div>
+</div>
+<div class="main">
+    <div class="page-top animated fadeInDown">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+    <ul class="nav" id="navMenu">
+        
+        
+            
+            <li><a 
+                   href="/"
+                        
+                   title="">Hem</a></li>
+        
+            
+            <li><a 
+                   href="/post/"
+                        
+                   title="">Inlägg</a></li>
+        
+            
+            <li><a 
+                   href="/about/"
+                        
+                   title="">Om</a></li>
+        
+        
+        <li class="theme-switch-item">
+            <a class="theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+    <div class="autopagerize_page_element">
+        <div class="content">
+    <div class="post animated fadeInDown">
+        <div class="post-content">
+
+            <div class="post-title">
+                <h3>Event Sourcing (och händelsedriven arkitektur) i praktiken</h3>
+                
+                    <div class="info">
+                        <em class="fas fa-calendar-day"></em>
+                        <span class="date">Sun, Mar 7, 2021</span>
+                        <em class="fas fa-stopwatch"></em>
+                        <span class="reading-time"></span>
+                    </div>
+                
+            </div>
+
+            <p>Jag har hittat två stycken vittnesmål om hur det är att jobba med <a href="https://martinfowler.com/eaaDev/EventSourcing.html">Event Sourcing</a> (ES) i praktiken.</p>
+<h3 id="mikael-sundberg">Mikael Sundberg</h3>
+<p>I ett föredrag från <a href="https://www.youtube.com/watch?v=_d4mAi3qkDA">JFocus 2017</a> (YouTube), berättar Mikael Sundberg om erfarenheter från att ha implementerat ES på <a href="https://www.klarna.com">Klarna</a>.</p>
+<p>Sundberg lyfter fem stycken problem (tre stycken relaterad till händelsedriven arkitektur, följt av två kring ES):</p>
+<ol>
+<li>Automatisk testning av dina historiska modeller blir ett problem om du uppdaterar dina tester till att testa den nya modellen när du utökar den. I produktion kommer den nya modellen finnas, men även historiska permutationer. Sundbergs förslag på lösning är att skapa data enligt historiska modeller i testerna.</li>
+<li>Monitorering - hur skiljer jag på att en händelse inte har hänt och att någonting gått fel? Sundbergs förslag på lösning är ett skapa ett &ldquo;spår&rdquo; genom systemet, genom att parallellt skapa metahändelser som berättar vilka händelser som har inträffat.</li>
+<li><a href="https://en.wikipedia.org/wiki/Eventual_consistency">Eventual Consistency</a> blir ett problem i en händelsedriven arkitektur om data persisteras vid sidan om själva händelserna. Sundbergs förslag på lösning är att skapa ett synkront dataflöde där händelsen persisteras utanför händelseströmmen innan det lägges på strömmen.</li>
+<li>Du måste värna din domän och inte utöka dina <a href="https://en.wikipedia.org/wiki/Domain-driven_design#aggregate_root">aggregat</a> med data som inte hör hemma där, bara för att händelseflödet redan finns på plats. Sundbergs förslag på lösning är att säga &ldquo;nej&rdquo;, men hjälpa till att lösa problemet på rätt sätt.</li>
+<li>Om dina händelser beskrivs och verifieras via schema så är det lättare att kommunicera dina domänmodeller med t ex andra team. Sundberg lyfter detta som det största misstaget - att inte tillämpa schmeman från start.</li>
+</ol>
+<p>Sundberg avslutar med att lyfta vad han tycker är bra med ES:</p>
+<ol>
+<li>Dina datafrågor är alltid snabba eftersom du aldrig riskerar att sakna ett databasindex.</li>
+<li>Att replikera data som inte kan muteras är lätt.</li>
+<li>Att det är svårt att ställa frågor är “bra”, eftersom det tvingar dig att göra “rätt” genom att skapa dedikerade modeller för läsning genom t ex Elastic Search.</li>
+<li>Uppmuntrar bra domänmodeller.</li>
+<li>Ingenting raderas.</li>
+</ol>
+<h3 id="david-schmitz">David Schmitz</h3>
+<p>I ett föredrag från <a href="https://www.youtube.com/watch?v=GzrZworHpIk">Devoxx 2018(?)</a> (YouTube), sammanfattar David Schmitz sina erfarenheter från att implementera ES. Schmitz argumenterar för att ES är komplicerat, och att du är dömd att göra misstag på vägen. Han konstaterar även att ES i praktiken handlar om att skapa löst kopplad affärslogik redan på verksamhetsnivå.</p>
+<p>Schmitz radar upp ett antal insikter kring ES, blandat med tips för att lyckas implementera det:</p>
+<ol>
+<li>Separata &ldquo;läsmodeller&rdquo; är överskattat. Skapa en händelseström per aggregat istället. Dina strömmar kommer att vara tillräckligt små.</li>
+<li>Dina aggregat bildar avgränsningar för dina transaktioner, eftersom dom skrivs i sin helhet eller inte alls.</li>
+<li><a href="https://kafka.apache.org">Apache Kafka</a> kan inte garantera ordningen på händelser som skrivs till en ström på ett sådant sätt att den som skriver händelsen kan säga att &ldquo;den här händelsen måste hamna direkt efter den där händelsen, annars misslyckas skrivningen&rdquo;. Det gör att om du har flera producenter som skriver till samma ström så kan du inte upprätthålla affärslogik som kräver att händelser ibland inte skrivs i en viss ordning (exempelvis övertrasering av bankkonto).</li>
+<li>Att använda &ldquo;Upcaster&rdquo; som mönster för att hantera flera parallella versioner av händelser (på verksamghetsnivå) blir väldigt komplext över tid.</li>
+<li>Undvik flera versioner av händelser på verksamhetsnivå. Utöka befintliga händelser på ett bakåtkompatiblet schema istället och realisera det i en lösning med &ldquo;svaga&rdquo; scheman (så som JSON schema) som i första hand hjälper till att beskriva din domänmodell. Lita på den som skriver händelsen.</li>
+<li>Om du behöver förstå ES, prata med din ekonomiavdelning. Bokföring är i praktiken ES.</li>
+<li>För att hantera fallet att väldigt mycket händelsedata skapas över tid, eller att du har behova av att skapa om din domänmodell, så är det möjligt att migrera din ström till en aggregerad (eller ommodellerad) ström. Det kan dock innebära utmaningar om systemet används samtidigt.</li>
+<li>Om en händelse har ett namn som innehåller &ldquo;och&rdquo;, så rör det sig nog egentligen om två olika händelser.</li>
+<li>Använd korrigeringshändelser för att rätta till &ldquo;fel&rdquo; i strömmen, men korrigera bara hela händelser - aldrig delar. Att göra &ldquo;hela&rdquo; korrieringar är mer explicit och lättare att förstå och resonera kring (och även hur det görs i bokföring).</li>
+<li>När det kommer till personuppgifter så innebär kryptering av hela strömmar väldigt hög komplexitet i form av nyckelhantering och svårigheter att sköta drift. Separera istället publikt data från privat data, så att du har möjlighet att bara radera dom händelser som innehåller det privata datat.</li>
+</ol>
+
+        </div>
+        <div class="post-footer">
+            <div class="info">
+                
+                <span class="separator"><a class="tag" href="/tags/event-sourcing/">event-sourcing</a><a class="tag" href="/tags/ddd/">ddd</a><a class="tag" href="/tags/h%C3%A4ndelsedriven-arkitektur/">händelsedriven-arkitektur</a></span>
+
+            </div>
+        </div>
+
+        
+            
+        
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"
+        src="https://tias79.github.io/js/jquery.min.86b1e8f819ee2d9099a783e50b49dff24282545fc40773861f9126b921532e4c.js"
+        integrity="sha256-hrHo&#43;BnuLZCZp4PlC0nf8kKCVF/EB3OGH5EmuSFTLkw="
+        crossorigin="anonymous"></script>
+
+
+
+
+<script type="text/javascript"
+        src="https://tias79.github.io/js/bundle.min.0f9c74cb78f13d1f15f33daff4037c70354f98acfbb97a6f61708966675c3cae.js"
+        integrity="sha256-D5x0y3jxPR8V8z2v9AN8cDVPmKz7uXpvYXCJZmdcPK4="
+        crossorigin="anonymous"></script>
+
+<script type="text/javascript"
+        src="https://tias79.github.io/js/medium-zoom.min.92f21c856129f84aeb719459b3e6ac621a3032fd7b180a18c04e1d12083f8aba.js"
+        integrity="sha256-kvIchWEp&#43;ErrcZRZs&#43;asYhowMv17GAoYwE4dEgg/iro="
+        crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-2GTF7BXWRC', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+</body>
+
+</html>

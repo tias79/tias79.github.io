@@ -6,7 +6,16 @@
     <description>Recent content on Mattias Eklöfs blogg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>se</language>
-    <lastBuildDate>Sun, 03 Jan 2021 10:21:00 +0100</lastBuildDate><atom:link href="https://tias79.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Mar 2021 07:44:00 +0100</lastBuildDate><atom:link href="https://tias79.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Event Sourcing (och händelsedriven arkitektur) i praktiken</title>
+      <link>https://tias79.github.io/post/event-sourcing-i-praktiken/</link>
+      <pubDate>Sun, 07 Mar 2021 07:44:00 +0100</pubDate>
+      
+      <guid>https://tias79.github.io/post/event-sourcing-i-praktiken/</guid>
+      <description>Vittnesmål om att implementera event sourcing.</description>
+    </item>
+    
     <item>
       <title>Event Sourcing</title>
       <link>https://tias79.github.io/post/event-sourcing/</link>

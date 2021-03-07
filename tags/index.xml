@@ -6,11 +6,11 @@
     <description>Recent content in Tags on Mattias Eklöfs blogg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>se</language>
-    <lastBuildDate>Sun, 03 Jan 2021 10:21:00 +0100</lastBuildDate><atom:link href="https://tias79.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Mar 2021 07:44:00 +0100</lastBuildDate><atom:link href="https://tias79.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ddd</title>
       <link>https://tias79.github.io/tags/ddd/</link>
-      <pubDate>Sun, 03 Jan 2021 10:21:00 +0100</pubDate>
+      <pubDate>Sun, 07 Mar 2021 07:44:00 +0100</pubDate>
       
       <guid>https://tias79.github.io/tags/ddd/</guid>
       <description></description>
@@ -19,9 +19,18 @@
     <item>
       <title>event-sourcing</title>
       <link>https://tias79.github.io/tags/event-sourcing/</link>
-      <pubDate>Sun, 03 Jan 2021 10:21:00 +0100</pubDate>
+      <pubDate>Sun, 07 Mar 2021 07:44:00 +0100</pubDate>
       
       <guid>https://tias79.github.io/tags/event-sourcing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>händelsedriven-arkitektur</title>
+      <link>https://tias79.github.io/tags/h%C3%A4ndelsedriven-arkitektur/</link>
+      <pubDate>Sun, 07 Mar 2021 07:44:00 +0100</pubDate>
+      
+      <guid>https://tias79.github.io/tags/h%C3%A4ndelsedriven-arkitektur/</guid>
       <description></description>
     </item>
     
@@ -40,15 +49,6 @@
       <pubDate>Sun, 13 Dec 2020 10:42:00 +0100</pubDate>
       
       <guid>https://tias79.github.io/tags/apache-kafka/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>händelsedriven-arkitektur</title>
-      <link>https://tias79.github.io/tags/h%C3%A4ndelsedriven-arkitektur/</link>
-      <pubDate>Sun, 13 Dec 2020 10:42:00 +0100</pubDate>
-      
-      <guid>https://tias79.github.io/tags/h%C3%A4ndelsedriven-arkitektur/</guid>
       <description></description>
     </item>
     
