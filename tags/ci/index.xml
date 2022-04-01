@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ci on Mattias Eklöfs blogg</title>
+    <link>https://tias79.github.io/tags/ci/</link>
+    <description>Recent content in ci on Mattias Eklöfs blogg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>se</language>
+    <lastBuildDate>Fri, 01 Apr 2022 09:54:00 +0200</lastBuildDate><atom:link href="https://tias79.github.io/tags/ci/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kodtäckning - vän eller fiende</title>
+      <link>https://tias79.github.io/post/kodtackning/</link>
+      <pubDate>Fri, 01 Apr 2022 09:54:00 +0200</pubDate>
+      
+      <guid>https://tias79.github.io/post/kodtackning/</guid>
+      <description>Kodtäckning är ett användbart verktyg som används alldeles för måttfullt.</description>
+    </item>
+    
+  </channel>
+</rss>

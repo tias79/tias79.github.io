@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="se" data-theme=""><head>
-    <title> Mattias Eklöf | ddd </title>
+    <title> Mattias Eklöf | Kodtäckning - vän eller fiende </title>
 
     
     <meta charset="utf-8"><meta name="generator" content="Hugo 0.78.2" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -22,10 +22,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://tias79.github.io/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://tias79.github.io/favicons/favicon-16x16.png">
 
-    <link rel="canonical" href="https://tias79.github.io/tags/ddd/">
+    <link rel="canonical" href="https://tias79.github.io/post/kodtackning/">
 
     
-    <link rel="alternate" type="application/rss+xml" href="https://tias79.github.io/tags/ddd/index.xml" title="Mattias Eklöfs blogg" />
     
     
     
@@ -36,8 +35,8 @@
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://tias79.github.io/images/site-feature-image.png"/>
 
-<meta name="twitter:title" content="ddd"/>
-<meta name="twitter:description" content="Det är här som jag pratar med mitt framtida jag om systemutveckling"/>
+<meta name="twitter:title" content="Kodtäckning - vän eller fiende"/>
+<meta name="twitter:description" content="Kodtäckning är ett användbart verktyg som används alldeles för måttfullt."/>
 
 </head>
 <body><div class="sidebar animated fadeInDown">
@@ -114,49 +113,54 @@
 
     <div class="autopagerize_page_element">
         <div class="content">
-    <div class="archive animated fadeInDown">
-        <ul class="list-with-title">
+    <div class="post animated fadeInDown">
+        <div class="post-content">
+
+            <div class="post-title">
+                <h3>Kodtäckning - vän eller fiende</h3>
+                
+                    <div class="info">
+                        <em class="fas fa-calendar-day"></em>
+                        <span class="date">Fri, Apr 1, 2022</span>
+                        <em class="fas fa-stopwatch"></em>
+                        <span class="reading-time"></span>
+                    </div>
+                
+            </div>
+
+            <p>Att exekvera automatiska tester vid byggning är inget ovanligt (typiskt enhets- och integrationtester). Det hjälper oss att upptäcka regression, och genom att exekvera testerna vid byggning så blir det också en del av vår CI-pipeline. Medan det verkar vara de facto standard att automatiskt försöka upptäcka regression vid CI (och avbryta integrationen om det inträffar), så finns inte samma tradition av att försöka upprätthålla kodtäcknigen i syfte att se till att det finns tester som faktiskt verifierar om regression inträffar eller inte.</p>
+<p><em>Jag brukar förespråka att 100% av raderna i applikationen måste exekveras av testerna för att bygget ska godkännas (dvs 100%&quot; line converage&quot;).</em> Anledningen är att kodtäckning är det enda verktyg som jag känner till för att automatiskt avgöra om risken för regression har ökat. Det blir viktigt eftersom automatiskt tvingande regelverk inte går att slingra sig ur och är mer objektiva än utvecklare. Det är inte den perfekta lösningen, men det är inte heller en dålig lösning.</p>
+<p><em>Jag blir tvingad att skriva test för kod som inte behöver testas!</em>
+Finns det kod som inte behöver testas så ska den så klart exkluderas från testtäckningen. Det kan t ex röra sig om genererad kod.</p>
+<p><em>Jag kan skriva tester som inte testar någonting, bara för att uppfylla kodtäckningen!</em></p>
+<p>Ja, på samma sätt som du kan skriva affärslogik som inte gör någon faktisk nytta. Det är en av anledningarna till att vi har
+kodgranskning, och testkod är inte annorlunda från annan kod - den bör granskas.</p>
+<p><em>Enhetstestning är dåligt!</em></p>
+<p>Kodtäckning är inte bara applicerbart för enhetstestning, utan du kan t ex ha en testsvit med integrationstester av mer BDD-karaktär.
+Det som spelar roll i slutändan är om kodraderna har exekverats av testsviten, oavsett av hur den är sammansatt.</p>
+<p><em>Det är ett jävla besvär att jag inte kan få ut saker i testmiljön innan jag har skrivit tester!</em></p>
+<p>Om så är fallet så kan kanske det beror på andra problem, t ex: 1) arkitektur/design/annat gör att
+det är omständigt att skriva tester, eller 2) arkitektur/design/annat gör att det är för krångligt att
+testa lokalt. Steget från en test miljö- till produktionsmiljö är inte lång, så vad är det som garanterar
+att du skriver dom uteblivna testfallen innan produktionssättning?</p>
+<p><em>100% radtäckning är överdrivet!</em></p>
+<p>Jag tycker inte det är överdrivet att varje kodrad ska ha exekverats åtminstone <em>en</em> gång av testsviten.
+Det är fortfarande inte vattentätt på något sätt, men att upptäcka regression är i alla fall möjligt om koden exekveras.</p>
+
+        </div>
+        <div class="post-footer">
+            <div class="info">
+                
+                <span class="separator"><a class="tag" href="/tags/kodt%C3%A4ckning/">kodtäckning</a><a class="tag" href="/tags/ci/">ci</a></span>
+
+            </div>
+        </div>
+
+        
             
-                <div class="listing-title">2021</div>
-                
-                    <ul class="listing">
-                        <div class="listing-item">
-                            <div class="listing-post"><a href="https://tias79.github.io/post/event-sourcing-i-praktiken/" title="Event Sourcing (och händelsedriven arkitektur) i praktiken">Event Sourcing (och händelsedriven arkitektur) i praktiken</a>
-                                <div class="post-time"><span class="date">Mar 7</span></div>
-                            </div>
-                        </div>
-                    </ul>
-                
-                    <ul class="listing">
-                        <div class="listing-item">
-                            <div class="listing-post"><a href="https://tias79.github.io/post/event-sourcing/" title="Event Sourcing">Event Sourcing</a>
-                                <div class="post-time"><span class="date">Jan 3</span></div>
-                            </div>
-                        </div>
-                    </ul>
-                
-            
-                <div class="listing-title">2020</div>
-                
-                    <ul class="listing">
-                        <div class="listing-item">
-                            <div class="listing-post"><a href="https://tias79.github.io/post/tumregler-topics-apache-kafka/" title="Tumregler för komponering av topics i Apache Kafka">Tumregler för komponering av topics i Apache Kafka</a>
-                                <div class="post-time"><span class="date">Dec 13</span></div>
-                            </div>
-                        </div>
-                    </ul>
-                
-                    <ul class="listing">
-                        <div class="listing-item">
-                            <div class="listing-post"><a href="https://tias79.github.io/post/martin-kleppmann/" title="Martin Kleppmann">Martin Kleppmann</a>
-                                <div class="post-time"><span class="date">Nov 22</span></div>
-                            </div>
-                        </div>
-                    </ul>
-                
-            
-        </ul>
+        
     </div>
+
 
         </div>
     </div>
