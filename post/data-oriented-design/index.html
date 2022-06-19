@@ -36,7 +36,7 @@
 <meta name="twitter:image" content="https://tias79.github.io/images/site-feature-image.png"/>
 
 <meta name="twitter:title" content="Data-Oriented Design"/>
-<meta name="twitter:description" content="Data-Oriented Design sätter datat i första rummet för maximal prestanda"/>
+<meta name="twitter:description" content="Data-Oriented Design sätter datat i främsta rummet för maximal prestanda"/>
 
 </head>
 <body><div class="sidebar animated fadeInDown">
@@ -121,7 +121,7 @@
                 
                     <div class="info">
                         <em class="fas fa-calendar-day"></em>
-                        <span class="date">Sat, Jun 18, 2022</span>
+                        <span class="date">Sun, Jun 19, 2022</span>
                         <em class="fas fa-stopwatch"></em>
                         <span class="reading-time"></span>
                     </div>
@@ -130,7 +130,7 @@
 
             <p>Data-Oriented Design (DOD) handlar om att sätta sitt data i främsta rummet, och aktivt resonera kring hur data struktureras och organiseras i minnet för maximera prestanda.</p>
 <h3 id="varför-är-dod-relevant-och-viktigt">Varför är DOD relevant och viktigt?</h3>
-<p>På [CppCon 2014)(https://www.youtube.com/watch?v=rX0ItVEVjHc) (YouTube) presenterar Mike Acton sin syn på vad DOD är för någonting och inleder med att konstatera att &ldquo;The purpose of all programs, and all parts of those programs, is to transform data from one form to another&rdquo;. Acton menar att alla problem därför är dataproblem, och till dessa problem hör att förstå kostnaden med att arbeta med datat (läsa, skriva, etc). Han resonerar vidare att sammanhanget hjälper oss att förstå datat bättre, och att vi måste titta på data över tid för att förstå omfattningen av t ex kostnaden för data (t ex om data som är dyrt att läsas läses väldigt ofta, så är kostnaden större).</p>
+<p>I sin föreläsning <a href="https://www.youtube.com/watch?v=rX0ItVEVjHc">Data-Oriented Design and C++</a> (YouTube) från <a href="https://cppcon.org/">CppCon 2014</a> presenterar Mike Acton sin syn på vad DOD är för någonting och inleder med att konstatera att &ldquo;The purpose of all programs, and all parts of those programs, is to transform data from one form to another&rdquo;. Acton menar att alla problem därför är dataproblem, och till dessa problem hör att förstå kostnaden med att arbeta med datat (läsa, skriva, etc). Han resonerar vidare att sammanhanget hjälper oss att förstå datat bättre, och att vi måste titta på data över tid för att förstå omfattningen av t ex kostnaden för data (t ex om data som är dyrt att läsas läses väldigt ofta, så är kostnaden större).</p>
 <p>Den yttersta nyttan med DOD är högre prestanda, och det är lätt att förstå hur detta är relevant i spelbranschen där Mike Acton hör hemma, men av föreläsningen att döma så verkar Acton tycka att DOD är relevant för all systemutveckling. Acton hävdar att den främsta anledningen till att vi måste prata om DOD är tre stycken utbredda lögner:</p>
 <ol>
 <li>Mjukvaran är plattformen.</li>
@@ -152,7 +152,7 @@
 <li>Dålig testbarhet</li>
 </ul>
 <h3 id="dod-i-praktiken">DOD i praktiken</h3>
-<p>I sin presentation från CppCon går Mike Acton sedan in på hur DOD ser ut i praktiken. Fem år senare håller emellertid Andrew Kelley ett föredrag på Handmade Seattle 2021, som heter <a href="https://media.handmade-seattle.com/practical-data-oriented-design/">A Practical Guide to Applying Data-Oriented Design</a>, som uttalat är en uppföljare till Actons föredrag, och som mer pedagogiskt förklarar hur DOD ser ut i praktiken - när det används i Zig-kompilatorn.</p>
+<p>I sin presentation från CppCon går Mike Acton sedan in på hur DOD ser ut i praktiken. Fem år senare håller emellertid <a href="https://andrewkelley.me">Andrew Kelley</a> ett föredrag på Handmade Seattle 2021, som heter <a href="https://media.handmade-seattle.com/practical-data-oriented-design/">A Practical Guide to Applying Data-Oriented Design</a>, som uttalat är en uppföljare till Actons föredrag, och som mer pedagogiskt förklarar hur DOD ser ut i praktiken - när det används i Zig-kompilatorn.</p>
 <p>Kärnan i Kelleys presentation är att de flesta CPU-instruktioner är &ldquo;billigare&rdquo; än att läsa data från primärminne (eller ännu värre, allokera minne på stacken). Så för att uppnå maximal prestanda så måste vi tänka på hur datat ser ut i minnet för att i så stor utsträckning som möjligt utnyttja CPUns cache (helst L1). För CPUn är snabb, men minnet är långsamt, menar Kelley, och presenterar en strategi för att realisera DOD: identifiera var du har många objekt i minnet, och reducera storleken på var och ett av dessa objekt.</p>
 <p>Andrew Kelley fortsätter sedan med att lista ett antal strategier för att i sin tur reducera storleken på dessa objekt/structar:</p>
 <ol>
