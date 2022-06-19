@@ -163,7 +163,7 @@
 <li>Använd &ldquo;kodning&rdquo; istället för OOP/polymorfism (vilket är en kombination av 1-4 istället för arv).</li>
 </ol>
 <p>I strategierna ovan så handlar 1 och 4 om att direkt använda färre bytes av minnet, medan 2,3 och 5 handlar om att undvika <em>padding</em>, vilket blir en indirekt minnesanvändning. <em>Padding</em> kan uppstå när vi blandar olika datatyper i en struct eftersom moderna CPUer är optimerade för <a href="https://en.wikipedia.org/wiki/Data_structure_alignment">naturally aligned</a> data. Att spara &ldquo;padding&rdquo; i cachen är ett uppenbart slöseri.</p>
-<p>Andrew Kelley går sedan igenom utfallet av att använda dessa strategier på Zig-kompilatorn och hur det minskar antalet cache-missar, hur färre instruktioner anropas, hur färre CPU-cykler används, osv. Kelley nämner även dessa optimeringar i <a href="https://youtu.be/gn3YsZ6HUHw?t=3838">S2, E7</a> (YouTube) av <a href="https://about.sourcegraph.com/podcast">Sourcegraph podcast</a> och genomgången av <a href="https://youtu.be/AqDdWEiSwMM?t=943">Zig Roadmap 2023</a> (YouTube) från Zig Milan Party 2022</p>
+<p>Andrew Kelley går sedan igenom utfallet av att använda dessa strategier på Zig-kompilatorn och hur det minskar antalet cache-missar, hur färre instruktioner anropas, hur färre CPU-cykler används, osv. Kelley nämner även dessa optimeringar i <a href="https://youtu.be/gn3YsZ6HUHw?t=3838">S2, E7</a> (YouTube) av <a href="https://about.sourcegraph.com/podcast">Sourcegraph podcast</a> och genomgången av <a href="https://youtu.be/AqDdWEiSwMM?t=943">Zig Roadmap 2023</a> (YouTube) från Zig Milan Party 2022.</p>
 
         </div>
         <div class="post-footer">
