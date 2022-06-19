@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Mattias Eklöfs blogg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>se</language>
-    <lastBuildDate>Fri, 01 Apr 2022 09:54:00 +0200</lastBuildDate><atom:link href="https://tias79.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Jun 2022 22:00:00 +0200</lastBuildDate><atom:link href="https://tias79.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data-Oriented Design</title>
+      <link>https://tias79.github.io/post/data-oriented-design/</link>
+      <pubDate>Sat, 18 Jun 2022 22:00:00 +0200</pubDate>
+      
+      <guid>https://tias79.github.io/post/data-oriented-design/</guid>
+      <description>Data-Oriented Design sätter datat i första rummet för maximal prestanda</description>
+    </item>
+    
     <item>
       <title>Kodtäckning - vän eller fiende</title>
       <link>https://tias79.github.io/post/kodtackning/</link>
